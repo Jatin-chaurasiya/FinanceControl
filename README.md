@@ -145,13 +145,15 @@ Cloudinary
 
 ---
 ### ⚠️ Important Notes
-Backend is not deployed (free-tier limitation)
-Project runs locally
-APIs tested via Postman
+
+- Backend is not deployed (free-tier limitation)
+- Project runs locally
+- APIs tested via Postman
 
 ---
-###🚀 Future Improvements
-Deploy backend (Docker + Cloud)
-Add activity logs
-Pagination & analytics
-Improve UI/UX
+### 🚀 Future Improvements
+
+- Deploy backend (Docker + Cloud)
+- Add activity logs
+- Pagination & analytics
+- Improve UI/UX
