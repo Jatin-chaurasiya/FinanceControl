@@ -33,6 +33,30 @@ A full-stack financial management system to track income, expenses, and analytic
 
 ---
 
+### 👥 User Roles
+
+The system supports two roles with different permissions:
+
+🔑 Admin (Analyst Role)
+
+- Full system access
+- Manage all users (ban / unban analysts)
+- Add / update categories
+- Add income & expense for any analyst
+- Delete income & expense
+- View all transactions
+- Access dashboard & analytics
+- Apply advanced filters
+
+👤 Analyst / User
+- Limited access
+- View personal dashboard
+- Add income
+- Add expense
+- Filter own transactions
+
+---
+
 ## ✨ Features
 
 ### 🔑 Admin (Analyst Role)
