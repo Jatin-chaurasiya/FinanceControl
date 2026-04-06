@@ -48,11 +48,8 @@ A full-stack financial management system to track income, expenses, and analytic
 - Analytics Dashboard
 
 📸 **Admin Dashboard**  
-<<<<<<< HEAD
-![Admin Dashboard](./screenshots/admin-dashboard.png)
-=======
-![Admin Dashboard](./screenshots/Admin.png)
->>>>>>> 37fc98b (Update Readme)
+
+![Admin Dashboard](./ScreenShots/Admin.png)
 
 ---
 
@@ -64,11 +61,9 @@ A full-stack financial management system to track income, expenses, and analytic
 - Filter transactions
 
 📸 **User Dashboard**  
-<<<<<<< HEAD
-![User Dashboard](./screenshots/user-dashboard.png)
-=======
-![User Dashboard](./screenshots/Anatyst.png)
->>>>>>> 37fc98b (Update Readme)
+
+![User Dashboard](./ScreenShots/Anatyst.png)
+
 
 ---
 
@@ -80,11 +75,8 @@ A full-stack financial management system to track income, expenses, and analytic
 - Filter by Analyst
 
 📸 **Filters**  
-<<<<<<< HEAD
-![Filters](./screenshots/filters.png)
-=======
-![Filters](./screenshots/Filter.png)
->>>>>>> 37fc98b (Update Readme)
+
+![Filters](./ScreenShots/Filter.png)
 
 ---
 
