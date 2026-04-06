@@ -20,7 +20,7 @@ public class ExpenseController {
     private final ExpenseService expenseService;
     private final ProfileService profileService;
 
-    // ✅ ONLY ADMIN
+    // ONLY ADMIN
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<ExpenseDTO> addExpense(
@@ -30,7 +30,7 @@ public class ExpenseController {
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 
-    // ✅ ANALYST + ADMIN
+    // ANALYST + ADMIN
     @GetMapping
     @PreAuthorize("hasAnyRole('ADMIN','ANALYST')")
     public ResponseEntity<List<ExpenseDTO>> getExpenses(

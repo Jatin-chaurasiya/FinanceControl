@@ -15,7 +15,7 @@ public class DashboardController {
 
     private final DashboardService dashboardService;
 
-    // ✅ ALL ROLES
+    //  ALL ROLES
     @PreAuthorize("hasAnyRole('ADMIN','ANALYST')")
     @GetMapping
     public ResponseEntity<Map<String, Object>> getDashboardData() {

@@ -147,16 +147,16 @@ public class ProfileService {
 
     public Map<String, Object> authenticateAndGenerateToken(AuthDTO authDTO) {
 
-        // ✅ FIRST: user fetch karo
+        //   user fetch karo
         ProfileEntity user = profileRepository.findByEmail(authDTO.getEmail())
                 .orElseThrow(() -> new RuntimeException("Invalid email or password"));
 
-        // ✅ SECOND: banned check
+        //   banned check
         if (user.isBanned()) {
             throw new RuntimeException("You are banned. Please contact admin.");
         }
 
-        // ✅ THIRD: password authenticate
+        // password authenticate
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
@@ -168,7 +168,7 @@ public class ProfileService {
             throw new RuntimeException("Invalid email or password");
         }
 
-        // ✅ LAST: token generate
+        // token generate
         String token = jwtUtil.generateToken(authDTO.getEmail(), user.getRole().name());
 
         return Map.of(

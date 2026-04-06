@@ -19,7 +19,7 @@ public class ExcelController {
     private final IncomeService incomeService;
     private final ExpenseService expenseService;
 
-    // ✅ ANALYST + ADMIN
+    //  ANALYST + ADMIN
     @PreAuthorize("hasAnyRole('ADMIN','ANALYST')")
     @GetMapping("/download/income")
     public void downloadIncomeExcel(HttpServletResponse response) throws IOException {
@@ -28,7 +28,7 @@ public class ExcelController {
         excelService.writeIncomesToExcel(response.getOutputStream(), incomeService.getCurrentMonthIncomesForCurrentUser());
     }
 
-    // ✅ ANALYST + ADMIN
+    //  ANALYST + ADMIN
     @PreAuthorize("hasAnyRole('ADMIN','ANALYST')")
     @GetMapping("/download/expense")
     public void downloadExpenseExcel(HttpServletResponse response) throws IOException {

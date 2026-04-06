@@ -17,7 +17,7 @@ public class CategoryController {
 
     private final CategoryService categoryService;
 
-    // ✅ ONLY ADMIN
+    //  ONLY ADMIN
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<CategoryDTO> saveCategory(@RequestBody CategoryDTO categoryDTO) {
@@ -25,7 +25,7 @@ public class CategoryController {
         return ResponseEntity.status(HttpStatus.CREATED).body(savedCategory);
     }
 
-    // ✅ ANALYST + ADMIN
+    //  ANALYST + ADMIN
     @PreAuthorize("hasAnyRole('ADMIN','ANALYST')")
     @GetMapping
     public ResponseEntity<List<CategoryDTO>> getCategories() {
@@ -33,7 +33,7 @@ public class CategoryController {
         return ResponseEntity.ok(categories);
     }
 
-    // ✅ ANALYST + ADMIN
+    //  ANALYST + ADMIN
     @PreAuthorize("hasAnyRole('ADMIN','ANALYST')")
     @GetMapping("/{type}")
     public ResponseEntity<List<CategoryDTO>> getCategoriesTypeForCurrentUser(@PathVariable String type){
@@ -41,7 +41,7 @@ public class CategoryController {
         return ResponseEntity.ok(list);
     }
 
-    // ✅ ONLY ADMIN
+    //  ONLY ADMIN
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{categoryId}")
     public ResponseEntity<CategoryDTO> updateCategory(@PathVariable Long categoryId,

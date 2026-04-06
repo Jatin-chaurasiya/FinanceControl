@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.util.List;
 
-@RestController // ❗ FIXED
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/filter")
 public class FilterController {
@@ -22,7 +22,7 @@ public class FilterController {
     private final ExpenseService expenseService;
     private final IncomeService incomeService;
 
-    // ✅ ANALYST + ADMIN
+    //  ANALYST + ADMIN
     @PreAuthorize("hasAnyRole('ADMIN','ANALYST')")
     @PostMapping
     public ResponseEntity<?> filterTransactions(@RequestBody FilterDTO filter) {

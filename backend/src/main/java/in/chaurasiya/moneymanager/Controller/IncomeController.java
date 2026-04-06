@@ -20,7 +20,7 @@ public class IncomeController {
     private final IncomeService incomeService;
     private final ProfileService profileService;
 
-    // ✅ ONLY ADMIN
+    //  ONLY ADMIN
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<IncomeDTO> addIncome(
@@ -30,7 +30,7 @@ public class IncomeController {
                 .body(incomeService.addIncome(dto, targetUserId));
     }
 
-    // ✅ ANALYST + ADMIN
+    //  ANALYST + ADMIN
     @GetMapping
     @PreAuthorize("hasAnyRole('ADMIN','ANALYST')")
     public ResponseEntity<List<IncomeDTO>> getIncomes(

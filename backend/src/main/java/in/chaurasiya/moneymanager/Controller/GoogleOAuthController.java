@@ -96,7 +96,7 @@ public class GoogleOAuthController {
                     profileRepository.save(profile);
                 }
 
-                // ✅ JWT with role
+                //  JWT with role
                 String jwtToken = jwtUtil.generateToken(email, profile.getRole().name());
 
                 Map<String, Object> response = new HashMap<>();

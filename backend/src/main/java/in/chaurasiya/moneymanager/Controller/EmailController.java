@@ -22,7 +22,7 @@ public class EmailController {
     private final EmailService emailService;
     private final ProfileService profileService;
 
-    // ✅ ANALYST + ADMIN
+    //  ANALYST + ADMIN
     @PreAuthorize("hasAnyRole('ADMIN','ANALYST')")
     @GetMapping("/income-excel")
     public ResponseEntity<Void> emailIncomeExcel() throws IOException, MessagingException {
@@ -38,7 +38,7 @@ public class EmailController {
         return ResponseEntity.ok(null);
     }
 
-    // ✅ ANALYST + ADMIN
+    //  ANALYST + ADMIN
     @PreAuthorize("hasAnyRole('ADMIN','ANALYST')")
     @GetMapping("/expense-excel")
     public ResponseEntity<Void> emailExpenseExcel() throws IOException, MessagingException {
