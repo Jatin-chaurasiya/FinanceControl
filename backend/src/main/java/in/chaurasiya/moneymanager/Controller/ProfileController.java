@@ -58,7 +58,7 @@ public class ProfileController {
     }
 
     //  SECURE THIS (logged-in users only)
-    @PreAuthorize("hasAnyRole('ADMIN','ANALYST',)")
+    @PreAuthorize("hasAnyRole('ADMIN','ANALYST')")
     @GetMapping("/profile")
     public ResponseEntity<ProfileDTO> getPublicProfile() {
         ProfileDTO profileDTO = profileService.getPublicProfile(null);
