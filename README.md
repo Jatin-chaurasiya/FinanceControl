@@ -24,6 +24,10 @@ A full-stack financial management system to track income, expenses, and analytic
 - Postman Collection:  
   https://www.postman.com/jatinchaurasiya/financecontrol-api/request/45012710-71993ce7-8adb-4d30-9d6d-f461dc4669c2?sideView=agentMode
 
+📸 **Postman Collections**  
+
+![Admin Dashboard](./ScreenShots/postman.png)
+
 ---
 
 ## 👤 Default Admin Credentials
