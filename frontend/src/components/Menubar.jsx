@@ -30,15 +30,15 @@ const Menubar = ({ activeMenu }) => {
   };
 
   return (
-    <div className="flex items-center justify-between gap-5 bg-white border border-b border-gray-200/50 backdrop-blur-[2px] py-4 px-4 sm:px-7 sticky top-0 z-30">
+    <div className="flex items-center justify-between gap-5 bg-[#00ccff] border border-b border-gray-200/50 backdrop-blur-[2px] py-4 px-4 sm:px-7 sticky top-0 z-30">
       <div className="flex items-center gap-5">
         <button className="block lg:hidden text-black hover:bg-gray-100 p-1 rounded transition-colors"
           onClick={() => setOpenSideMenu(!openSideMenu)}>
           {openSideMenu ? <X className="text-2xl" /> : <Menu className="text-2xl" />}
         </button>
         <div className="flex items-center gap-2">
-          <img src={assets.logo} alt="logo" className="h-10 w-10" />
-          <span className="text-lg font-medium text-black truncate">Monetric</span>
+          <img src={assets.logo1} alt="logo" className="h-10 w-10" />
+          <span className="text-lg font-medium text-black truncate">CropFinex</span>
         </div>
       </div>
 
