@@ -3,7 +3,7 @@ import aboutImg from "../assets/about-img.png"; // rename your image & place in 
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-20  bg-amber-100">
+    <section id="about" className="py-20  bg-[#92e0ff]">
       <div className="container mx-auto px-4">
         <h1 className="text-3xl font-bold text-gray-900 mb-12 text-center text-5xl">
           About
@@ -12,20 +12,15 @@ const AboutSection = () => {
           {/* Left Content */}
           <div className="lg:w-1/2">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Take Control of Your Finances
+            Take Control of Your Financial OperationsTake Control of Your Finances
             </h2>
 
             <p className="text-gray-600 leading-relaxed mb-6">
-              Your foundation for secure, intelligent financial management.
-              Effortlessly track your income and expenses to achieve your
-              financial goals with clarity and confidence.
+              Built for modern organizations, this system enables both users and administrators to manage finances efficiently. Users can securely log in, record daily income and expenses, and track their financial activities with ease.
             </p>
 
             <p className="text-gray-600 leading-relaxed">
-              Users can simply log in or sign up, add their daily income or
-              expenses, and we’ll handle the rest. Enjoy automated daily
-              reminders straight to your email—helping you stay consistent,
-              aware, and always in control of your money.
+              Administrators gain full control with advanced capabilities—monitor all user transactions, apply filters, update or delete records, and manage user access with actions like ban or unban. With centralized oversight and automated processes, your organization stays financially organized, transparent, and in control.
             </p>
           </div>
 

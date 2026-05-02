@@ -19,7 +19,7 @@ const Sidebar = ({ activeMenu }) => {
   role = role?.toUpperCase()?.replace("ROLE_", "").trim();
 
   return (
-    <div className="w-64 h-[calc(100vh-61px)] bg-white p-5">
+    <div className="w-64 h-[calc(100vh-61px)] bg-[#00ccff] p-5">
       <div className="flex flex-col items-center gap-3 mb-7">
         {user?.profileImageUrl ? (
           <img src={user.profileImageUrl} className="w-15 h-15 rounded-full" />

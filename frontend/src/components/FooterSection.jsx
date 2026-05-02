@@ -3,7 +3,7 @@ import { assets } from "../assets/assets";
 
 const FooterSection = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-12">
+    <footer className="bg-[#324a5f] text-gray-300 py-12">
       <div className="container mx-auto px-4">
 
         <div className="flex flex-col md:flex-row justify-between gap-10">
@@ -12,7 +12,7 @@ const FooterSection = () => {
           <div className="md:w-1/3">
             <div className="flex items-center gap-3 mb-4">
               <img src={assets.logo} alt="Monetrix Logo" className="h-12 w-12" />
-              <span className="text-2xl font-bold text-white">Monetrix</span>
+              <span className="text-2xl font-bold text-white">CorpFinex</span>
             </div>
             <p className="text-gray-400 italic">
               "Small steps today build the financial freedom of tomorrow."
@@ -59,7 +59,7 @@ const FooterSection = () => {
         {/* Divider */}
         <div className="border-t border-gray-700 mt-10 pt-6 text-center">
           <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} Monetrix — All rights reserved.
+            © {new Date().getFullYear()} CorpFinex — All rights reserved.
           </p>
           <p className="text-gray-500 text-sm mt-1">
             Made with ❤️ by <span className="text-white font-semibold">Jatin Chaurasiya</span>

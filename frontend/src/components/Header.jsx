@@ -13,15 +13,15 @@ const Header = () => {
   ];
 
   return (
-    <header className="border-b border-gray-200 bg-amber-100">
+    <header className="border-b border-gray-200 bg-[#00ccff]">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
 
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <img src={assets.logo} alt="logo" className="h-10 w-10" />
+            <img src={assets.logo1} alt="logo" className="h-10 w-10" />
             <span className="text-lg font-bold text-black truncate">
-              Monetrix
+              CorpFinex
             </span>
           </div>
 
