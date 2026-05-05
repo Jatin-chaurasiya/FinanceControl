@@ -2,6 +2,7 @@
 
 A full-stack financial management system to track income, expenses, and analytics with role-based access.
 
+Frontend Deploy - https://finance-control-management.netlify.app/
 ---
 
 ## 🚀 Tech Stack
