@@ -44,7 +44,6 @@ export const useLogin = () => {
       if (token) {
         localStorage.setItem("token", token);
 
-        // ✅ FIX: role safe extraction
         let finalRole = role;
 
         if (!finalRole) {
@@ -54,12 +53,10 @@ export const useLogin = () => {
           } catch {}
         }
 
-        localStorage.setItem("role", finalRole || "ANALYST"); // fallback
+        localStorage.setItem("role", finalRole || "ANALYST");
         localStorage.setItem("user", JSON.stringify(user));
 
         setUser(user);
-
-        // ✅ IMPORTANT
         navigate("/dashboard");
       }
     } catch (err) {

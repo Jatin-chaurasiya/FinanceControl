@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "codecounter": "node tools/codecounter.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
