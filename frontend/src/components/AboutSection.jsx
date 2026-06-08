@@ -1,5 +1,5 @@
 import { Heading, Heading1 } from "lucide-react";
-import aboutImg from "../assets/about-img.png"; // rename your image & place in assets folder
+import aboutImg from "../assets/about-img.png"; 
 
 const AboutSection = () => {
   return (

@@ -15,7 +15,6 @@ const AddIncomeForm = ({ onAddIncome, categories, isEditing = false, initialData
 
   const [loading, setLoading] = useState(false);
 
-  // 🔥 Prefill values ONLY when editing
   useEffect(() => {
     if (isEditing && initialData) {
       setIncome({
@@ -24,12 +23,11 @@ const AddIncomeForm = ({ onAddIncome, categories, isEditing = false, initialData
         date: initialData.date?.split("T")[0] || "",
         icon: initialData.icon || "",
         categoryId: initialData.categoryId || "",
-        id: initialData.id, // important for update API
+        id: initialData.id,
       });
     }
   }, [isEditing, initialData]);
 
-  // 🔥 Universal submit handler for both Add + Edit
   const handleSubmit = async () => {
     if (loading) return;
     setLoading(true);
