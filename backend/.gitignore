@@ -22,4 +22,3 @@ echo "*.jar"
 .DS_Store
 Thumbs.dbtarget/
 *.jar
-src/main/resources/application.properties
