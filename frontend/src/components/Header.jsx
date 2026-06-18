@@ -17,7 +17,6 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
 
-          {/* Logo */}
           <div className="flex items-center gap-2">
             <img src={assets.logo1} alt="logo" className="h-10 w-10" />
             <span className="text-lg font-bold text-black truncate">
@@ -25,7 +24,6 @@ const Header = () => {
             </span>
           </div>
 
-          {/* Desktop Menu */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link) => (
               <a
@@ -38,7 +36,6 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Login / Signup + Hamburger */}
           <div className="flex items-center space-x-4">
             <div className="hidden sm:flex items-center space-x-4">
               <Link
@@ -55,7 +52,6 @@ const Header = () => {
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="lg:hidden p-2 rounded-md text-gray-600 hover:bg-gray-100"
@@ -66,7 +62,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="lg:hidden bg-white border-t border-gray-200">
           <div className="container mx-auto px-4 py-4">

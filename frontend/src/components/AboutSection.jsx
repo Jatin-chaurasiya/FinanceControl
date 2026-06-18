@@ -9,7 +9,6 @@ const AboutSection = () => {
           About
         </h1>
         <div className="flex flex-col lg:flex-row items-center gap-12">
-          {/* Left Content */}
           <div className="lg:w-1/2">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
             Take Control of Your Financial OperationsTake Control of Your Finances
@@ -24,7 +23,6 @@ const AboutSection = () => {
             </p>
           </div>
 
-          {/* Right Image */}
           <div className="lg:w-1/2 flex justify-center">
             <img
               src={aboutImg}
