@@ -168,7 +168,6 @@ public class ProfileService {
             throw new RuntimeException("Invalid email or password");
         }
 
-        // token generate
         String token = jwtUtil.generateToken(authDTO.getEmail(), user.getRole().name());
 
         return Map.of(

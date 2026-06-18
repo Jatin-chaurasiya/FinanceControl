@@ -39,13 +39,13 @@ public class ExpenseController {
         ProfileEntity current = profileService.getCurrentProfile(); // ✅ FIX
 
         if (current.getRole().name().equals("ADMIN") && targetUserId == null) {
-            return ResponseEntity.ok(expenseService.getExpensesForAdmin()); // 👇 next fix
+            return ResponseEntity.ok(expenseService.getExpensesForAdmin());
         }
 
         return ResponseEntity.ok(expenseService.getExpenses(targetUserId));
     }
 
-    // ✅ ONLY ADMIN
+    //ONLY ADMIN
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteExpense(@PathVariable Long id) {

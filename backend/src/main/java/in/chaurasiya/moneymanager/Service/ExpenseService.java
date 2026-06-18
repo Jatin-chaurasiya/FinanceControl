@@ -22,7 +22,6 @@ public class ExpenseService {
     private final ExpenseRepository expenseRepository;
     private final ProfileService profileService;
 
-    // Adds a new expense to the database
     public ExpenseDTO addExpense(ExpenseDTO dto, Long targetUserId) {
         ProfileEntity profile = profileService.resolveTargetProfile(targetUserId); // ← changed
         CategoryEntity category = categoryRepository.findById(dto.getCategoryId())
@@ -32,16 +31,13 @@ public class ExpenseService {
         return toDTO(newExpense);
     }
 
-    // Retrieves all expenses for current month/based on the start date and end date
     public List<ExpenseDTO> getCurrentMonthExpensesForCurrentUser() {
         ProfileEntity profile = profileService.getCurrentProfile();
-        // ← date filter hata do
         List<ExpenseEntity> list = expenseRepository
                 .findByProfileIdOrderByDateDesc(profile.getId());
         return list.stream().map(this::toDTO).toList();
     }
 
-    //delete expense by id for current user
     public void deleteExpense(Long expenseId) {
         ProfileEntity profile = profileService.getCurrentProfile();
         ExpenseEntity entity = expenseRepository.findById(expenseId)
@@ -76,7 +72,7 @@ public class ExpenseService {
         return list.stream().map(this::toDTO).toList();
     }
 
-//    Notification Service
+//   Notification Service
     public List<ExpenseDTO> getExpensesForUserOnDate(Long profileId,LocalDate date){
         List<ExpenseEntity> list = expenseRepository.findByProfileIdAndDate(profileId,date);
         return list.stream().map(this::toDTO).toList();
@@ -105,7 +101,6 @@ public class ExpenseService {
         return list.stream().map(this::toDTO).toList();
     }
 
-    //helper methods
     private ExpenseEntity toEntity(ExpenseDTO dto, ProfileEntity profile, CategoryEntity category) {
         return ExpenseEntity.builder()
                 .name(dto.getName())
@@ -117,7 +112,6 @@ public class ExpenseService {
                 .build();
     }
 
-    // toDTO mein profileName add karo:
     private ExpenseDTO toDTO(ExpenseEntity entity) {
         return ExpenseDTO.builder()
                 .id(entity.getId())

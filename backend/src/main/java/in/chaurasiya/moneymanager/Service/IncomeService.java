@@ -123,9 +123,6 @@ public class IncomeService {
         return toDTO(updatedIncome);
     }
 
-
-
-    //helper methods
     private IncomeEntity toEntity(IncomeDTO dto, ProfileEntity profile, CategoryEntity category) {
         return IncomeEntity.builder()
                 .name(dto.getName())

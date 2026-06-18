@@ -39,13 +39,13 @@ public class IncomeController {
         ProfileEntity current = profileService.getCurrentProfile();
 
         if (current.getRole().name().equals("ADMIN") && targetUserId == null) {
-            return ResponseEntity.ok(incomeService.getIncomesForAdmin()); // 🔥 ALL DATA
+            return ResponseEntity.ok(incomeService.getIncomesForAdmin());
         }
 
         return ResponseEntity.ok(incomeService.getIncomes(targetUserId));
     }
 
-    // ✅ ONLY ADMIN
+    //ONLY ADMIN
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteExpense(@PathVariable Long id){
@@ -53,9 +53,9 @@ public class IncomeController {
         return ResponseEntity.noContent().build();
     }
 
-    // ✅ ONLY ADMIN
+    // ✅ ONLY admin
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/{id}") // ❗ fixed path
+    @PutMapping("/{id}")
     public ResponseEntity<IncomeDTO> updateIncome(
             @PathVariable Long id,
             @RequestBody IncomeDTO dto) {

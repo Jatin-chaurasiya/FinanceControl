@@ -57,7 +57,6 @@ public class ProfileController {
         return ResponseEntity.ok(profileService.getAllAnalysts());
     }
 
-    //  SECURE THIS (logged-in users only)
     @PreAuthorize("hasAnyRole('ADMIN','ANALYST')")
     @GetMapping("/profile")
     public ResponseEntity<ProfileDTO> getPublicProfile() {
