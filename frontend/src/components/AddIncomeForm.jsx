@@ -3,13 +3,20 @@ import EmojiPickerPop from "./EmojiPickupPop";
 import Input from "./Input";
 import { useEffect, useState } from "react";
 
-const AddIncomeForm = ({ onAddIncome, categories, isEditing = false, initialData }) => {
+const AddIncomeForm = ({
+  onAddIncome,
+  categories,
+  analysts = [],
+  isEditing = false,
+  initialData,
+}) => {
   const [income, setIncome] = useState({
     name: "",
     amount: "",
     date: "",
     icon: "",
     categoryId: "",
+    targetUserId: "",
     id: initialData?.id || undefined,
   });
 
@@ -33,7 +40,7 @@ const AddIncomeForm = ({ onAddIncome, categories, isEditing = false, initialData
     setLoading(true);
 
     try {
-      await onAddIncome(income);
+      await onAddIncome(income, income.targetUserId || null);
     } catch (error) {
       console.error(error);
     } finally {
@@ -44,6 +51,10 @@ const AddIncomeForm = ({ onAddIncome, categories, isEditing = false, initialData
   const categoryOptions = categories.map((cat) => ({
     value: cat.id,
     label: cat.name,
+  }));
+  const analystOptions = analysts.map((user) => ({
+    value: user.id,
+    label: `${user.fullName} (${user.email})`,
   }));
 
   const handleInputChange = (key, value) => {
@@ -86,10 +97,21 @@ const AddIncomeForm = ({ onAddIncome, categories, isEditing = false, initialData
 
       <Input
         value={income.categoryId}
-        onChange={(e) => handleInputChange("categoryId", Number(e.target.value))}
+        onChange={(e) =>
+          handleInputChange("categoryId", Number(e.target.value))
+        }
         isSelect={true}
         options={categoryOptions}
         label="Category"
+      />
+      <Input
+        value={income.targetUserId}
+        onChange={(e) =>
+          handleInputChange("targetUserId", Number(e.target.value))
+        }
+        isSelect={true}
+        options={analystOptions}
+        label="Assign To Employee"
       />
 
       <div className="flex justify-end mt-4">

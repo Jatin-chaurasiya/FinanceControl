@@ -93,8 +93,8 @@ const IncomeList = ({
             }
             amount={income.amount}
             type="income"
-            onDelete={() => onDelete(income.id)}
-            onEdit={() => onEdit(income)}
+            onDelete={onDelete ? () => onDelete(income.id) : null}
+            onEdit={onEdit ? () => onEdit(income) : null}
           />
         ))}
       </div>

@@ -4,10 +4,11 @@ import Input from "./Input";
 import { LoaderCircle } from "lucide-react";
 import { toast } from "react-hot-toast";
 
-
 const AddExpenseForm = ({
   onAddExpense,
   categories,
+  analysts = [],
+  isAdmin = false,
   isEditing = false,
   initialdata,
 }) => {
@@ -17,6 +18,7 @@ const AddExpenseForm = ({
     date: "",
     icon: "",
     categoryId: "",
+    targetUserId: "",
     id: initialdata?.id || undefined,
   });
   const [loading, setLoading] = useState(false);
@@ -28,7 +30,7 @@ const AddExpenseForm = ({
         date: initialdata.date?.split("T")[0] || "",
         icon: initialdata.icon || "",
         categoryId: initialdata.categoryId || "",
-        id: initialdata.id, 
+        id: initialdata.id,
       });
     }
   }, [isEditing, initialdata]);
@@ -37,24 +39,27 @@ const AddExpenseForm = ({
     if (loading) return;
     setLoading(true);
     try {
-      await onAddExpense(expense);
-    }
-    catch (error) {
+      await onAddExpense(expense, expense.targetUserId || null);
+    } catch (error) {
       toast.error(error.message || "Failed to add expense");
-    }finally {
+    } finally {
       setLoading(false);
-    } 
+    }
   };
   const categoriesOptions = categories.map((cat) => ({
     value: cat.id,
     label: cat.name,
+  }));
+  const analystOptions = analysts.map((user) => ({
+    value: user.id,
+    label: `${user.fullName} (${user.email})`,
   }));
   const handleInputChange = (key, value) => {
     setExpense((prev) => ({
       ...prev,
       [key]: value,
     }));
-  }
+  };
   return (
     <div>
       <EmojiPickerPop
@@ -64,11 +69,23 @@ const AddExpenseForm = ({
       <Input
         value={expense.categoryId}
         onChange={(e) =>
-          handleInputChange("categoryId", Number(e.target.value))}
-          isSelect={true}
-          options={categoriesOptions}
+          handleInputChange("categoryId", Number(e.target.value))
+        }
+        isSelect={true}
+        options={categoriesOptions}
         label="Category"
       />
+      {isAdmin && (
+        <Input
+          value={expense.targetUserId}
+          onChange={(e) =>
+            handleInputChange("targetUserId", Number(e.target.value))
+          }
+          isSelect={true}
+          options={analystOptions}
+          label="Assign Expense To"
+        />
+      )}
       <Input
         value={expense.name}
         onChange={(e) => handleInputChange("name", e.target.value)}
@@ -97,12 +114,14 @@ const AddExpenseForm = ({
           disabled={loading}
           className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
         >
-          {loading ? <>
-            <LoaderCircle size={15} className="h-4 w-4 animate-spin" />
-            {isEditing ? "Updating..." : "Adding..."}
-          </> : <>
-            {isEditing ? "Update Expense" : "Add Expense"}
-          </>}
+          {loading ? (
+            <>
+              <LoaderCircle size={15} className="h-4 w-4 animate-spin" />
+              {isEditing ? "Updating..." : "Adding..."}
+            </>
+          ) : (
+            <>{isEditing ? "Update Expense" : "Add Expense"}</>
+          )}
         </button>
       </div>
     </div>
