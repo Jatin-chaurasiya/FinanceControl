@@ -22,7 +22,7 @@ public class IncomeController {
 
     //  ONLY ADMIN
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     public ResponseEntity<IncomeDTO> addIncome(
             @RequestBody IncomeDTO dto,
             @RequestParam(required = false) Long targetUserId) {

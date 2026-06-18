@@ -21,8 +21,8 @@ public class ExpenseController {
     private final ProfileService profileService;
 
     // ONLY ADMIN
-    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
+    @PreAuthorize("hasAnyRole('ADMIN','ANALYST')")
     public ResponseEntity<ExpenseDTO> addExpense(
             @RequestBody ExpenseDTO dto,
             @RequestParam(required = false) Long targetUserId) { // ← ADD
