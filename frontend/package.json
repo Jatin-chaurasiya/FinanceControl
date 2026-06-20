@@ -14,11 +14,13 @@
     "@tailwindcss/vite": "^4.1.17",
     "axios": "^1.13.2",
     "emoji-picker-react": "^4.15.2",
+    "i18next": "^26.3.1",
     "lucide-react": "^0.553.0",
     "moments": "^0.0.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-hot-toast": "^2.6.0",
+    "react-i18next": "^17.0.8",
     "react-router-dom": "^7.9.5",
     "recharts": "^3.5.1",
     "tailwindcss": "^4.1.17"
