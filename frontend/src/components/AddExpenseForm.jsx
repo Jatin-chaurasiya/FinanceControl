@@ -36,6 +36,7 @@ const AddExpenseForm = ({
   }, [isEditing, initialdata]);
 
   const handleSubmit = async () => {
+    console.log("Expense Payload", expense);
     if (loading) return;
     setLoading(true);
     try {

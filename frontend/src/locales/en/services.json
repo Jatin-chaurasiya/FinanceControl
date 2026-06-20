@@ -1,0 +1,20 @@
+{
+  "services": {
+    "title": "Farmer Services",
+
+    "weatherTitle": "Weather Forecast",
+    "weatherDesc": "Get accurate weather predictions for your region.",
+
+    "cropTitle": "Crop Recommendation",
+    "cropDesc": "AI-powered suggestions for the best crops.",
+
+    "knowledgeTitle": "Knowledge Hub",
+    "knowledgeDesc": "Access farming techniques and best practices.",
+
+    "schemeTitle": "Government Schemes",
+    "schemeDesc": "Stay updated on subsidies and loans.",
+
+    "assistantTitle": "Virtual Assistant",
+    "assistantDesc": "Get instant answers to your farming questions."
+  }
+}

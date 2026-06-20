@@ -1,0 +1,14 @@
+{
+  "weather": {
+    "temperature": "Temperature",
+    "humidity": "Humidity",
+    "windSpeed": "Wind Speed",
+    "location": "Location",
+    "title": "Get Location-Specific Weather Data",
+    "selectState": "Select State",
+    "selectCity": "Select City",
+    "village": "Village (Optional)",
+    "getWeather": "Get Weather Data",
+    "clear": "Clear"
+  }
+}
