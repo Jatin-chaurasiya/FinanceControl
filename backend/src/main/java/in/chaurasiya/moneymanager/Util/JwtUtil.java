@@ -58,13 +58,13 @@ public class JwtUtil {
 
     public String generateToken(String email, String role) {
 
-        long now = System.currentTimeMillis(); // ✅ correct time source
+        long now = System.currentTimeMillis();
 
         return Jwts.builder()
                 .setSubject(email)
                 .claim("role", role)
-                .setIssuedAt(new Date(now))  // ✅ FIXED
-                .setExpiration(new Date(now + jwtExpiration)) // ✅ FIXED
+                .setIssuedAt(new Date(now))
+                .setExpiration(new Date(now + jwtExpiration))
                 .signWith(Keys.hmacShaKeyFor(secret.getBytes()), SignatureAlgorithm.HS256)
                 .compact();
     }

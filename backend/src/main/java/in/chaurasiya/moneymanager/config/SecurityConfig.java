@@ -35,7 +35,7 @@ public class SecurityConfig {
     @Bean
     public FilterRegistrationBean<JwtRequestFilter> jwtFilterRegistration(JwtRequestFilter filter) {
         FilterRegistrationBean<JwtRequestFilter> registration = new FilterRegistrationBean<>(filter);
-        registration.setEnabled(false); // ← servlet auto-registration band
+        registration.setEnabled(false);
         return registration;
     }
 

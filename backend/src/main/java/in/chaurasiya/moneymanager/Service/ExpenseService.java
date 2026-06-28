@@ -23,6 +23,8 @@ public class ExpenseService {
     private final ProfileService profileService;
 
     public ExpenseDTO addExpense(ExpenseDTO dto, Long targetUserId) {
+        System.out.println("targetUserId = " + targetUserId);
+        System.out.println("categoryId = " + dto.getCategoryId());
         ProfileEntity profile = profileService.resolveTargetProfile(targetUserId); // ← changed
         CategoryEntity category = categoryRepository.findById(dto.getCategoryId())
                 .orElseThrow(() -> new RuntimeException("Category not found"));

@@ -25,7 +25,9 @@ public class ExpenseController {
     @PreAuthorize("hasAnyRole('ADMIN','ANALYST')")
     public ResponseEntity<ExpenseDTO> addExpense(
             @RequestBody ExpenseDTO dto,
-            @RequestParam(required = false) Long targetUserId) { // ← ADD
+            @RequestParam(required = false) Long targetUserId) {
+        System.out.println("DTO RECEIVED = " + dto);
+        System.out.println("CATEGORY ID = " + dto.getCategoryId());
         ExpenseDTO saved = expenseService.addExpense(dto, targetUserId);
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }

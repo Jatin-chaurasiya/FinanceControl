@@ -25,7 +25,7 @@ public class AppUserDetailsService implements UserDetailsService {
                 .password(existingProfile.getPassword())
                 .roles(existingProfile.getRole().name())
                 .disabled(existingProfile.getIsActive() == null || !existingProfile.getIsActive())
-                .accountLocked(existingProfile.isBanned())   // ← ADD
+                .accountLocked(existingProfile.isBanned())
                 .build();
     }
 }
