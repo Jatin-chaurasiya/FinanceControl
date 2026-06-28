@@ -23,12 +23,14 @@ public class EmailService {
         try {
             SimpleMailMessage message = new SimpleMailMessage();
             message.setFrom(fromEmail);
+            System.out.println(fromEmail);
             message.setTo(to);
             message.setSubject(subject);
             message.setText(body);
             mailSender.send(message);
-        }catch (Exception e) {
-            throw new RuntimeException(e.getMessage());
+        }catch (Exception e){
+            e.printStackTrace();
+            throw new RuntimeException("Email failed", e);
         }
     }
 
