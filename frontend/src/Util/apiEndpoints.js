@@ -1,4 +1,4 @@
-export const BASE_URL = "http://api.jatindev.xyz/api/v1.0";
+export const BASE_URL = "https://api.jatindev.xyz/api/v1.0";
 
 const CLOUDINARY_CLOUD_NAME = "dgiigrvhu";
 
@@ -46,7 +46,7 @@ export const GOOGLE_AUTH_CONFIG = {
   CLIENT_ID: "14080772032-8ge1i5l8kmr3bujf3faabf7df00scudf.apps.googleusercontent.com",
   REDIRECT_URI:
 window.location.hostname === "localhost"
-? "http://localhost:5173/auth/google/callback"
+? "https://localhost:5173/auth/google/callback"
 : "https://financecontrol.jatindev.xyz/auth/google/callback",
   SCOPE: "email profile",
   getAuthUrl: () => {
