@@ -50,6 +50,7 @@ public class SecurityConfig {
                                 "/api/v1.0/login",
                                 "/api/v1.0/register",
                                 "/api/v1.0/activate",
+                                "/activate",
                                 "/login",
                                 "/register",
                                 "/auth/google/**",
