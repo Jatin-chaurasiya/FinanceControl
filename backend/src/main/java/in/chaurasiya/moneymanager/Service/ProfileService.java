@@ -34,18 +34,117 @@ public class ProfileService {
     private String activationURL;
 
     public ProfileDTO registerProfile(ProfileDTO profileDTO) {
+
         ProfileEntity newProfile = toEntity(profileDTO);
 
         newProfile.setRole(Role.ANALYST);
 
         newProfile.setActivationToken(UUID.randomUUID().toString());
+
         newProfile = profileRepository.save(newProfile);
 
-        String activationLink = activationURL+"/api/v1.0/activate?token=" + newProfile.getActivationToken();
-        String subject = "Activate your Money Manager account";
-        String body = "Click on the following link to activate your account: " + activationLink;
+        String activationLink =
+                activationURL +
+                        "/api/v1.0/activate?token=" +
+                        newProfile.getActivationToken();
 
-        emailService.sendEmail(newProfile.getEmail(), subject, body);
+        String subject = "Activate your Money Manager Account";
+
+        String body = """
+        <!DOCTYPE html>
+        <html>
+
+        <body style="margin:0;
+                     padding:30px;
+                     background:#f4f6f9;
+                     font-family:Arial,sans-serif;">
+
+        <div style="
+             max-width:600px;
+             margin:auto;
+             background:white;
+             border-radius:12px;
+             overflow:hidden;
+             box-shadow:0 5px 20px rgba(0,0,0,.1);
+             ">
+
+            <div style="
+                background:#2563eb;
+                color:white;
+                padding:25px;
+                text-align:center;">
+
+                <h1>
+                💰 Money Manager
+                </h1>
+
+            </div>
+
+            <div style="padding:35px;">
+
+                <h2>Hello %s 👋</h2>
+
+                <p>
+                Thank you for registering with
+                <b>Money Manager</b>.
+                </p>
+
+                <p>
+                Click the button below to activate your account.
+                </p>
+
+                <div style="text-align:center;margin:40px;">
+
+                    <a href="%s"
+
+                    style="
+                    background:#2563eb;
+                    color:white;
+                    padding:16px 35px;
+                    text-decoration:none;
+                    border-radius:8px;
+                    font-size:18px;
+                    display:inline-block;">
+
+                    Activate Account
+
+                    </a>
+
+                </div>
+
+                <p>
+                If the button doesn't work, copy this link:
+                </p>
+
+                <p style="color:#2563eb;word-break:break-all;">
+                %s
+                </p>
+
+                <hr>
+
+                <p style="color:gray;font-size:13px;">
+                This is an automated email.
+                Please don't reply.
+                </p>
+
+            </div>
+
+        </div>
+
+        </body>
+
+        </html>
+        """.formatted(
+                newProfile.getFullName(),
+                activationLink,
+                activationLink
+        );
+
+        emailService.sendEmail(
+                newProfile.getEmail(),
+                subject,
+                body
+        );
 
         return toDTO(newProfile);
     }

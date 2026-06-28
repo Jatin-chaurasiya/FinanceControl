@@ -24,14 +24,81 @@ public class ProfileController {
         return ResponseEntity.status(HttpStatus.CREATED).body(registeredProfile);
     }
 
-    @GetMapping("/activate")
+    @GetMapping(value="/activate", produces = "text/html")
     public ResponseEntity<String> activateProfile(@RequestParam String token) {
-        boolean isActivated = profileService.activateProfile(token);
-        if (isActivated) {
-            return ResponseEntity.ok("Profile activated successfully");
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Activation token not found or already used");
+
+        boolean activated = profileService.activateProfile(token);
+
+        if (activated) {
+
+            String html = """
+        <!DOCTYPE html>
+        <html>
+
+        <head>
+
+        <title>Account Activated</title>
+
+        </head>
+
+        <body style="
+        background:#f4f6f9;
+        font-family:Arial;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;">
+
+        <div style="
+        background:white;
+        padding:40px;
+        border-radius:12px;
+        width:450px;
+        text-align:center;
+        box-shadow:0 0 20px rgba(0,0,0,.15);">
+
+        <h1 style="color:green;">
+        ✅ Account Activated
+        </h1>
+
+        <p>
+        Your Money Manager account has been activated successfully.
+        </p>
+
+        <br>
+
+        <a href="http://13.239.117.204:8082/login"
+
+        style="
+        background:#2563eb;
+        color:white;
+        padding:14px 30px;
+        text-decoration:none;
+        border-radius:8px;">
+
+        Go To Login
+
+        </a>
+
+        </div>
+
+        </body>
+
+        </html>
+        """;
+
+            return ResponseEntity.ok(html);
+
         }
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("""
+        <html>
+        <body style="font-family:Arial;text-align:center;padding:60px;">
+        <h1 style="color:red;">❌ Invalid Activation Link</h1>
+        <p>The activation link is invalid or has already been used.</p>
+        </body>
+        </html>
+        """);
     }
 
     @PostMapping("/login")
