@@ -2,7 +2,20 @@
 
 A full-stack financial management system to track income, expenses, and analytics with role-based access.
 
-Frontend Deploy - https://finance-control-management.netlify.app/
+## Deployment
+
+### Backend
+- AWS EC2 (Ubuntu + Spring Boot + Nginx)
+
+### Frontend
+- Netlify
+
+### Live Application
+- https://financecontrol.jatindev.xyz/
+
+### Frontend Deployment
+- https://financecontrolmanagement.netlify.app/
+
 ---
 
 ## 🚀 Tech Stack
