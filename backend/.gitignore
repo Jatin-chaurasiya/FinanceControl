@@ -22,3 +22,5 @@ echo "*.jar"
 .DS_Store
 Thumbs.dbtarget/
 *.jar
+.idea/
+.vscode/
