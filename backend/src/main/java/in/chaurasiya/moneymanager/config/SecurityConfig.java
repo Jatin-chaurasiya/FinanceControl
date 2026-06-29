@@ -3,8 +3,10 @@ package in.chaurasiya.moneymanager.config;
 import in.chaurasiya.moneymanager.Service.AppUserDetailsService;
 import in.chaurasiya.moneymanager.security.JwtRequestFilter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpMethod;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
@@ -46,6 +48,7 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .formLogin(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers(
                                 "/api/v1.0/login",
                                 "/api/v1.0/register",
@@ -94,8 +97,8 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOriginPatterns(List.of(
                 "http://localhost:*",
-                "https://monetrix-moneymanager.onrender.com",
-                "https://*.onrender.com"
+                "https://financecontrol.jatindev.xyz",
+                "https://*.netlify.app"
         ));
         configuration.setAllowedMethods(List.of(
                 "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"
