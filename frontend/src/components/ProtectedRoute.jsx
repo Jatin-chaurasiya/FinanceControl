@@ -40,12 +40,10 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
     setLoading(false);
   }, []);
 
-  // ❌ no token
   if (!token || isTokenExpired(token)) {
     return <Navigate to="/login" replace />;
   }
 
-  // ⏳ loading
   if (loading || !user) {
     return (
       <div className="h-screen flex items-center justify-center">
@@ -54,7 +52,6 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
     );
   }
 
-  // ❌ role mismatch
   if (allowedRoles && !allowedRoles.includes(role)) {
     return <Navigate to="/dashboard" replace />;
   }
