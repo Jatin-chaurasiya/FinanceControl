@@ -10,7 +10,7 @@ const GoogleCallback = () => {
   const navigate = useNavigate();
   const { setUser } = useContext(AppContext);
   const [error, setError] = useState("");
-  
+
   const hasCalledAPI = useRef(false);
 
   useEffect(() => {
@@ -37,36 +37,39 @@ const GoogleCallback = () => {
   }, [searchParams, navigate, setUser]);
 
   const handleGoogleCallback = async (code) => {
-    try {    
+    try {
       const response = await axiosConfig.get(
-        `${API_ENDPOINTS.GOOGLE_CALLBACK}?code=${code}`
+        `${API_ENDPOINTS.GOOGLE_CALLBACK}?code=${code}`,
       );
-      const { token, email, name, picture } = response.data;
+      const { token, email, name, picture, role } = response.data;
 
       if (!token) {
         throw new Error("No token received from backend");
       }
+
       localStorage.setItem("token", token);
-      
+      localStorage.setItem("role", role);
+
       const userData = {
         email,
         fullName: name,
         profileImageUrl: picture,
+        role,
       };
-      
+
       localStorage.setItem("user", JSON.stringify(userData));
+      localStorage.setItem("role", role);
       setUser(userData);
       setTimeout(() => {
         navigate("/dashboard", { replace: true });
       }, 1000);
-
     } catch (err) {
       hasCalledAPI.current = false;
-      
+
       setError(
-        err.response?.data?.error || 
-        err.response?.data?.message || 
-        "Google login failed. Please try again."
+        err.response?.data?.error ||
+          err.response?.data?.message ||
+          "Google login failed. Please try again.",
       );
       setTimeout(() => navigate("/login"), 3000);
     }
